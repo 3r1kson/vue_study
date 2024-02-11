@@ -10,19 +10,41 @@
 </head>
 <body>
     <div id="app">
-        {{ message }}
+        {{ message }}<br>
+        Total Value: {{ totalValue }}<br>
+        Logged: {{ logged }}<br>
+        Hobby: {{ hobbies[1] }}<br>
+        Profile: {{ profile.site }} <br>
+        Courses: {{ profile.courses[0].name }}
+        
     </div>
     <script>
         options = {
             el: '#app', //# to id and . if using class eg. class="app"
             data: {
                 message: 'First Vue Template',
+                totalValue: 150.47,
+                logged: false,
+                hobbies: [
+                    'fishing',
+                    'sleeping',
+                    'playing games',
+                    'gym',
+                    'studying'
+                ],
+                profile: {
+                    name: 'Erikson',
+                    site: 'test.com.br',
+                    age: 39,
+                    courses: [
+                        {name: 'Laravel', courseHours: 50},
+                        {name: 'React-Native', courseHours: 40}
+                    ],
+                }
             }
         };
 
         const vm = new Vue(options); // vm = View Model
-
-        console.log(vm);
     </script>
 </body>
 </html>
