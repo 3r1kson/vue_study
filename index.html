@@ -7,41 +7,52 @@
 
     <!--  PRODUCTION <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>-->
     <title>Document</title>
+    <style>
+        .green {
+            color: green;
+        }
+        .bold {
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
-        {{ message }}<br>
-        Total Value: {{ totalValue }}<br>
-        Logged: {{ logged }}<br>
-        Hobby: {{ hobbies[1] }}<br>
-        Profile: {{ profile.site }} <br>
-        Courses: {{ profile.courses[0].name }}
-        
+        <!-- v-bind can be used as v-bind:href to :href -->
+        <a :href="site" target="_blank">Site</a>
+        <p :class="color" class="bold">Understanding v-bind directive</p>
+        <input type="text" :placeholder="formInstruction" :value="value">
+        <input type="checkbox" :checked="check">
     </div>
     <script>
         options = {
             el: '#app', //# to id and . if using class eg. class="app"
             data: {
-                message: 'First Vue Template',
-                totalValue: 150.47,
-                logged: false,
-                hobbies: [
-                    'fishing',
-                    'sleeping',
-                    'playing games',
-                    'gym',
-                    'studying'
-                ],
-                profile: {
-                    name: 'Erikson',
-                    site: 'test.com.br',
-                    age: 39,
-                    courses: [
-                        {name: 'Laravel', courseHours: 50},
-                        {name: 'React-Native', courseHours: 40}
-                    ],
-                }
-            }
+                site: 'https://teste.com.br',
+                color: 'green',
+                formInstruction: 'Placeholder - VBind',
+                value: 'V-bind',
+                check: true
+            },
+            methods: {}
+            // data: {
+            //     n1: 10,
+            //     n2: 5
+            // },
+            // methods: {
+            //     sum: function sum() {
+            //         return this.n1 + this.n2;
+            //     },
+            //     subtraction: function () {
+            //         return this.n1 - this.n2;
+            //     },
+            //     multiplication: () => {
+            //         return this.n1 * this.n2; // returns NaN due be considered as function not object
+            //     },
+            //     divide() {
+            //         return this.n1 / this.n2;
+            //     },
+            // }
         };
 
         const vm = new Vue(options); // vm = View Model
